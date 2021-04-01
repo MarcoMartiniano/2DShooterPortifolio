@@ -11,8 +11,8 @@ public class GameManagement : MonoBehaviour
     public static int vidas;
     public static int pontuacao;
     public static int tipoEndGame;
-    public TextMeshProUGUI txtScore;
     public GameObject coracaoPrefab;
+    public TextMeshProUGUI txtScore;
     public static List<GameObject> ListaCoracao;
     public GameObject coracaoGrupo;
     public GameObject panelEndGame;
@@ -58,14 +58,6 @@ public class GameManagement : MonoBehaviour
         InicializacaoVariaveis();
     }
 
-   
-    void Update()
-    {
-        //Atualizar score
-        score = "Score: " + pontuacao;
-        txtScore.text = score;
-
-    }
 
 
     //Gerar os coracoes
@@ -109,8 +101,6 @@ public class GameManagement : MonoBehaviour
 
     public void InicializacaoVariaveis()
     {
-        score = "Score: " + pontuacao;
-        txtScore.text = score;
         vidas = 3;
         pontuacao = 0;
         tipoEndGame = 0;
@@ -428,7 +418,7 @@ public class GameManagement : MonoBehaviour
     public void DificuldadeFacil()
     {
         InicializacaoVariaveis();    
-        VariaveisMaximoDificuldade(3, 6, 3);
+        VariaveisMaximoDificuldade(3, 3, 3);
         //despausando
         DespausarJogo();
         //fechando panel
@@ -498,4 +488,11 @@ public class GameManagement : MonoBehaviour
         audioSource.PlayOneShot(audioExplosao);
     }
 
+    public static void MetodoAtualizarScore(TextMeshProUGUI txtScore)
+    {
+        //Atualizar score
+        String score;
+        score = "Score: " + pontuacao;
+        txtScore.text = score;
+    }
 }

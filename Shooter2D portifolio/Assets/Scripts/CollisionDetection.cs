@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using TMPro;
 using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
@@ -7,11 +7,14 @@ public class CollisionDetection : MonoBehaviour
   
     private GameObject objetoGameManager;
     private GameManagement gameManagement;
+    private TextMeshProUGUI txtScore;
+  
 
     void Start()
     {
         objetoGameManager = GameObject.Find("EventSystemGameManager");
-        gameManagement = objetoGameManager.GetComponent<GameManagement>();
+        txtScore = GameObject.Find("TextScore").GetComponent<TextMeshProUGUI>();
+        gameManagement = objetoGameManager.GetComponent<GameManagement>();      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -126,6 +129,7 @@ public class CollisionDetection : MonoBehaviour
                     Debug.Log("gameObject: " + gameObject.tag); //Player
                     Debug.Log("collision.gameObject: " + collision.gameObject.tag); // naveinimigo
                     GameManagement.pontuacao += 10;
+                    GameManagement.MetodoAtualizarScore(txtScore);
                     collision.gameObject.GetComponent<Atirar>().CancelInvoke();
                     gameObject.SetActive(false);
                     collision.gameObject.SetActive(false);
@@ -153,6 +157,7 @@ public class CollisionDetection : MonoBehaviour
                 {
                     SpawnObjects.numeroAtualMeteoroPequeno = -1;
                     GameManagement.pontuacao += 3;
+                    GameManagement.MetodoAtualizarScore(txtScore);
                     gameObject.SetActive(false);
                     collision.gameObject.SetActive(false);
                     gameManagement.AudioExplosao();
@@ -172,6 +177,7 @@ public class CollisionDetection : MonoBehaviour
                 {
                     SpawnObjects.numeroAtualMeteoroGrande = -1;
                     GameManagement.pontuacao += 6;
+                    GameManagement.MetodoAtualizarScore(txtScore);
                     gameObject.SetActive(false);
                     collision.gameObject.SetActive(false);
                     gameManagement.AudioExplosao();

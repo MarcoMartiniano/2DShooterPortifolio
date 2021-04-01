@@ -65,14 +65,12 @@ public class SpawnObjects : MonoBehaviour
                     {
                        Spawn(0, 1, 0, 0);
                        Spawn(0, 1,  0, 0);
-                       Spawn(0, 1, 0, 0);
                     }
 
                     if (numeroAtualMeteoroPequeno < numeroMaximoMeteoroPequeno)
                     {  
                         Spawn(1, 0, 0, 0);
-                        Spawn(1, 0, 0, 0);
-                        Spawn(1, 0, 0, 0);
+                        Spawn(1, 0, 0, 0);                   
                         Spawn(1, 0, 0, 0);
                         Spawn(1, 0, 0, 0);
                     }
@@ -252,12 +250,12 @@ public class SpawnObjects : MonoBehaviour
     public void InimigosSpawnInicial()
     {
         Spawn(2, 0, 10, 0);
-        Spawn(2, 0, 10, 5);
-        Spawn(1, 0, 6, 0);
+      //  Spawn(2, 0, 10, 5);
+       // Spawn(1, 0, 6, 0);
         Spawn(1, 0, 7, 3);
-        Spawn(1, 0, 9, -6);
+       // Spawn(1, 0, 9, -6);
         Spawn(0, 0, 0, 0);
-        Spawn(0, 0, 0, 0);
+       // Spawn(0, 0, 0, 0);
         Spawn(0, 0, 0, 0);
 
     }
