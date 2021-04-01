@@ -8,9 +8,8 @@ public class MoveToPlayer : MonoBehaviour
     public float speed = 1.0f;
     Vector3 vetorDirecaoPlayer;
 
-
-
-    // Start is called before the first frame update
+    //CLASSE PARA O OBJETO IR EM DIREÇÃO AO PLAYER
+   
     void Start()
     {
         Player = GameObject.Find("Player");

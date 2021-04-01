@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float rightboundary = 9.3f;
     private float upboundary = 7.1f;
     private float downboundary = -7.1f;
+
     private AudioSource audioSource;
     public AudioClip audioTiro;
 
@@ -20,46 +21,34 @@ public class PlayerController : MonoBehaviour
 
     private ObjectPoolTiros objectPoolTiros;
 
-
     public GameObject projectilePrefab;
 
-    // Start is called before the first frame update
     void Start()
     {
         objectPoolTiros = GetComponent<ObjectPoolTiros>();
         Debug.Log("Posicao inicial player  "+ gameObject.transform.position);
         audioSource = GetComponent<AudioSource>();
-
-
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (transform.position.x < leftboundary)
         {
             transform.position = new Vector3(leftboundary, transform.position.y, transform.position.z);
-
         }
         if (transform.position.x > rightboundary)
         {
             transform.position = new Vector3(rightboundary, transform.position.y, transform.position.z);
-
         }
-
         if (transform.position.y < downboundary)
         {
             transform.position = new Vector3(transform.position.x, downboundary, transform.position.z);
-
         }
-
         if (transform.position.y > upboundary)
         {
             transform.position = new Vector3(transform.position.x, upboundary, transform.position.z);
-
         }
-
-
 
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speedHorizontal);
@@ -84,11 +73,8 @@ public class PlayerController : MonoBehaviour
                 //Audio tiro
                 audioSource.PlayOneShot(audioTiro);
             }
-            
-          
+                     
         }
-
-
     }
 
     IEnumerator CooldownTiroJogador()

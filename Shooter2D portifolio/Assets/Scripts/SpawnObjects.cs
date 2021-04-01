@@ -31,7 +31,6 @@ public class SpawnObjects : MonoBehaviour
     void Start()
     {
         VariaveisInicial();
-
     }
 
     public  void IniciarSpawn()
@@ -50,49 +49,39 @@ public class SpawnObjects : MonoBehaviour
             yield return new WaitForSeconds(2f);
             NuvensSpawn();
         }
-
     }
-
 
     IEnumerator SearchForTargetRepeat(int level)
     {
 
         switch (level)
         {
-            case 1:
-             
+            case 1:            
                 while (GameManagement.tipoEndGame == 0)
                 {
                     tamanho += 1;
 
                     if (numeroAtualInimigos < numeroMaximoInimigos)
                     {
-
-                        Spawn(0, 1, 0, 0);
-                        Spawn(0, 1,  0, 0);
                        Spawn(0, 1, 0, 0);
-
-
+                       Spawn(0, 1,  0, 0);
+                       Spawn(0, 1, 0, 0);
                     }
 
                     if (numeroAtualMeteoroPequeno < numeroMaximoMeteoroPequeno)
-                    {
-   
+                    {  
                         Spawn(1, 0, 0, 0);
                         Spawn(1, 0, 0, 0);
                         Spawn(1, 0, 0, 0);
                         Spawn(1, 0, 0, 0);
                         Spawn(1, 0, 0, 0);
-
                     }
 
                     if (numeroAtualMeteoroGrande < numeroMaximoMeteoroGrande)
-                    {
-             
+                    {           
                         Spawn(2, 0, 0, 0);
                         Spawn(2, 0, 0, 0);
                         Spawn(2, 0, 0, 0);
-
                     }
                     yield return new WaitForSeconds(2);               
                 }
@@ -101,12 +90,8 @@ public class SpawnObjects : MonoBehaviour
 
             default:
                 break;
-
-
         }
         SearchForTargetRepeat(1);
-
-
     }
 
 
@@ -158,10 +143,7 @@ public class SpawnObjects : MonoBehaviour
                 if(sorteio == 0)
                 {
                     meteoroGrande.GetComponent<MoveToPlayer>().enabled = false;
-
                 }
-
-
                 break;
 
             case 3:
@@ -173,15 +155,12 @@ public class SpawnObjects : MonoBehaviour
                 else{
                     GameObject objetoNuvem = objPoolNuvem.GetAvailableObject(inicial,0,0);
                     objetoNuvem.GetComponent<MoveLeft>().speed = 3;
-                }
-               
+                }              
                 break;
 
             default:
                 break;
         }
-
-
     }
 
 
@@ -270,7 +249,6 @@ public class SpawnObjects : MonoBehaviour
         objPoolNuvem = ObjPoolingNuvem.GetComponent<ObjectPoolNuvem>();
     }
 
-
     public void InimigosSpawnInicial()
     {
         Spawn(2, 0, 10, 0);
@@ -283,6 +261,5 @@ public class SpawnObjects : MonoBehaviour
         Spawn(0, 0, 0, 0);
 
     }
-
 
 }

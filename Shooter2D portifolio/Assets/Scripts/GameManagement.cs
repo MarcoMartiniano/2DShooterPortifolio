@@ -11,7 +11,7 @@ public class GameManagement : MonoBehaviour
     public static int vidas;
     public static int pontuacao;
     public static int tipoEndGame;
-    public GameObject txtScore;
+    public TextMeshProUGUI txtScore;
     public GameObject coracaoPrefab;
     public static List<GameObject> ListaCoracao;
     public GameObject coracaoGrupo;
@@ -34,14 +34,10 @@ public class GameManagement : MonoBehaviour
     public GameObject botaoPausar;
     public List<Sprite> listaBotaoPausar;
 
-
-    List<GameObject> listaObjetos;
-
     List<int> indexInimigos;
     List<int> indexNuvens;
     List<int> indexMeteoroPequeno;
     List<int> indexMeteoroGrande;
-    List<int> indexMeteoroGrandeVe;
     List<int> indexTiroPlayer;
     List<int> indexTiroinimigo;
 
@@ -55,23 +51,24 @@ public class GameManagement : MonoBehaviour
     private bool controladorBotaoPausarContinuar;
     private bool controladorBotaoPausarAuxiliar;
 
-    // Start is called before the first frame update
+    string score;
     void Start()
     {
+        //iniciando variaveis
         InicializacaoVariaveis();
-
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         //Atualizar score
-        string score = "Score: " + pontuacao;
-        txtScore.GetComponent<TextMeshProUGUI>().text = score;
+        score = "Score: " + pontuacao;
+        txtScore.text = score;
 
     }
 
 
+    //Gerar os coracoes
     public void gerarCoracao()
     {
         Vector3 vetor1 = new Vector3(-320, -240, 0);
@@ -112,7 +109,8 @@ public class GameManagement : MonoBehaviour
 
     public void InicializacaoVariaveis()
     {
-
+        score = "Score: " + pontuacao;
+        txtScore.text = score;
         vidas = 3;
         pontuacao = 0;
         tipoEndGame = 0;
@@ -130,14 +128,7 @@ public class GameManagement : MonoBehaviour
         controladorBotaoPausarContinuar = true;
         controladorBotaoPausarAuxiliar = true;
 
-
     }
-
-
-
-
-
-
 
 
     public static void DestruirTodosObjetosLista(List<GameObject> lista)
@@ -158,6 +149,7 @@ public class GameManagement : MonoBehaviour
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 
     }
+
 
     public void BotaoPausarContinuar()
     {
@@ -187,10 +179,6 @@ public class GameManagement : MonoBehaviour
 
         }
         
-     
-
-
-
     }
 
 
@@ -222,11 +210,6 @@ public class GameManagement : MonoBehaviour
         //TirosInimigos
         PausarTodosObjetosAtivos(gameObjectTiroinimigo, 5);
 
-
-
-
-
-
     }
     public void DespausarJogo()
     {
@@ -242,17 +225,13 @@ public class GameManagement : MonoBehaviour
         //Inimigos
         DespausarTodosObjetosAtivos(gameObjectInimigo, 1);
 
-
         //player
         gameObjectPlayer.GetComponent<PlayerController>().speedVertical = 6;
         gameObjectPlayer.GetComponent<PlayerController>().speedHorizontal = 4;
 
-
         //Meteoros
         DespausarTodosObjetosAtivos(gameObjectMeteoroPequeno, 2);
         DespausarTodosObjetosAtivos(gameObjectMeteoroGrande, 3);
-
-
 
         //TirosPlayer
         DespausarTodosObjetosAtivos(gameObjectTiroPlayer, 4);
@@ -260,22 +239,7 @@ public class GameManagement : MonoBehaviour
         //TirosInimigos
         DespausarTodosObjetosAtivos(gameObjectTiroinimigo, 5);
 
-
-     
-
-        
-       
-
-
-
-
-
     }
-
-
-
-
-
 
     public void PausarTodosObjetosAtivos(GameObject objPool, int tipo)
     {
@@ -295,9 +259,7 @@ public class GameManagement : MonoBehaviour
                     if (objPool.transform.GetChild(i).gameObject.activeInHierarchy == true)
                     {
                         objPool.transform.GetChild(i).GetComponent<MoveLeft>().speed = 0;
-                        indexNuvens.Add(i);
-                           
-
+                        indexNuvens.Add(i);                          
                         }
 
                     }
@@ -531,7 +493,6 @@ public class GameManagement : MonoBehaviour
 
 
     //Audio Tiro
-
     public void AudioExplosao()
     {                 
         audioSource.PlayOneShot(audioExplosao);

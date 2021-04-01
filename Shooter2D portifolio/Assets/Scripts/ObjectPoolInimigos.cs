@@ -11,7 +11,6 @@ public class ObjectPoolInimigos : MonoBehaviour
     public GameObject objPoolingInimigos;
     private bool canGrown = true;
 
-
     private readonly List<GameObject> pool = new List<GameObject>();
 
     void Start()
@@ -31,10 +30,8 @@ public class ObjectPoolInimigos : MonoBehaviour
         for (int i = 0; i < pool.Count; i++)
         {
             if (pool[i].activeInHierarchy == false)
-            {          
-          
-                pool[i].SetActive(true);
-            
+            {                   
+                pool[i].SetActive(true);           
                 return pool[i];
             }
         }

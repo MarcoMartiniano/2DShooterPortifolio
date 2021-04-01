@@ -10,7 +10,6 @@ public class ObjectPoolNuvem : MonoBehaviour
     public GameObject objPoolingNuvem;
     private bool canGrown = true;
 
-
     private readonly List<GameObject> pool = new List<GameObject>();
 
 
@@ -37,7 +36,6 @@ public class ObjectPoolNuvem : MonoBehaviour
                     pool[i].SetActive(true);
                     pool[i].transform.localPosition = new Vector3(valorx, valory, 0f);
                     return pool[i];
-
                 }
                 else
                 {
@@ -47,9 +45,7 @@ public class ObjectPoolNuvem : MonoBehaviour
                     pool[i].SetActive(true);
                     pool[i].transform.localPosition = new Vector3(-6.0f, y, 0f);
                     return pool[i];
-
-                }
-               
+                }             
             }
         }
 

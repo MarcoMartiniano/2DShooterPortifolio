@@ -29,6 +29,7 @@ public class Atirar : MonoBehaviour
 
     private void Criartiro()
     {
+        //não deixa criar tiro se tiver Pausado
         if (!GameManagement.isPause)
         {   
         Vector3 vetor = new Vector3(transform.position.x -1 , transform.position.y, transform.position.z);

@@ -23,7 +23,6 @@ public class ObjectPoolTiroInimigos : MonoBehaviour
     }
 
 
-
     public GameObject GetAvailableObject()
     {
         for (int i = 0; i < pool.Count; i++)

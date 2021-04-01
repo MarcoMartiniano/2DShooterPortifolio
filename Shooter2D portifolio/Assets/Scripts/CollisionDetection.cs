@@ -109,25 +109,17 @@ public class CollisionDetection : MonoBehaviour
                     default:
                         break;
                 }
-
-        
-
-
-
-
-               
+            
                 break;
+
+
             case "NaveInimiga1":
                 
                 if (gameObject.tag.Equals("Player"))
-                {
-                    
-
+                {                  
                 }
                 else if (gameObject.tag.Equals("NaveInimiga1"))
                 {
-               
-
                 }
                 else if (gameObject.tag.Equals("TiroPlayer")) 
                 {
@@ -138,18 +130,12 @@ public class CollisionDetection : MonoBehaviour
                     gameObject.SetActive(false);
                     collision.gameObject.SetActive(false);
                     gameManagement.AudioExplosao();
-
                 }
                 else
                 {
-
-
-
-                }
-                
-               
-               
+                }                            
                 break;
+
             case "MeteoroPequeno":
                 if (gameObject.tag.Equals("Player"))
                 {
@@ -172,9 +158,8 @@ public class CollisionDetection : MonoBehaviour
                     gameManagement.AudioExplosao();
 
                 }
-           
-
                 break;
+
             case "MeteoroGrande":
                 if (gameObject.tag.Equals("Player"))
                 {
@@ -214,8 +199,5 @@ public class CollisionDetection : MonoBehaviour
         {
             
         }
-
     }
-
-
 }

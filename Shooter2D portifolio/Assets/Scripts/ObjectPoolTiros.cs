@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +31,6 @@ public class ObjectPoolTiros : MonoBehaviour
             {
                 Debug.Log("GetAvailableObject TIROOOOO" + pool[i].name);
                 return pool[i];
-
             }    
         }
         if (canGrown == true)
@@ -43,9 +41,6 @@ public class ObjectPoolTiros : MonoBehaviour
             pool.Add(pooledObject);
             return pooledObject;
         }
-
-
-
         return null;
     }
 }
